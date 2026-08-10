@@ -1,4 +1,4 @@
-# Carbon Footprint Nudge: An A/B Testing Case Study
+# Carbon Cart: An A/B Testing Case Study
 
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -15,7 +15,7 @@ Does showing shoppers a real-time carbon footprint estimate at checkout change t
 
 ## Methodology
 
-This isn't a single t-test. The pipeline covers:
+The pipeline covers:
 
 - **Power analysis** to size the experiment before collecting any data (`statsmodels`)
 - **CUPED** variance reduction using a pre-experiment covariate
