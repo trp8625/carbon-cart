@@ -1,0 +1,23 @@
+# Environment / secrets
+.env
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+
+# Generated data (regenerate by running the scripts in src/, see README)
+data/*.csv
+!data/.gitkeep
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
