@@ -5,13 +5,17 @@
 
 Does showing shoppers a real-time carbon footprint estimate at checkout change their behavior — and at what cost? This project runs a full, realistic A/B testing pipeline on a simulated e-commerce checkout flow, using **real carbon emission data from the [Climatiq API](https://www.climatiq.io/)** rather than made-up numbers, and goes well beyond a basic significance test.
 
-**[Read the full write-up →](docs/REPORT.md)**
+**[📊 Live interactive dashboard →](https://YOUR-APP-NAME.streamlit.app)** &nbsp;|&nbsp; **[📄 Full write-up →](docs/REPORT.md)**
+
+*(Replace the dashboard link above with your actual Streamlit Community Cloud URL once deployed, see "Interactive Dashboard" section below.)*
 
 ## Key Findings
 
 - The nudge produced a statistically significant **-2.45pp drop in conversion** (p = 0.0006) and a significant **+8.82pp increase** in shoppers choosing a lower-carbon alternative (p < 0.0001).
 - The **guardrail metric — total footprint per user — did not move significantly** (p = 0.39): the conversion loss and the greener choices roughly offset each other.
-- A parallel causal-inference exercise showed that estimating this same effect from **biased observational data flips the sign of the result entirely** — a concrete demonstration of why randomization matters.
+- A parallel causal-inference exercise showed that estimating this same effect from **biased observational data flips the sign of the result entirely** — a concrete demonstration of why randomization matters:
+
+![Naive observational analysis flips the sign of the true effect](docs/images/causal_comparison.png)
 
 ## Methodology
 
@@ -24,13 +28,26 @@ This isn't a single t-test. The pipeline covers:
 - **Causal inference comparison** — propensity score matching (`scikit-learn`) vs. a naive observational estimate, benchmarked against the randomized ground truth
 - **Guardrail trade-off analysis** — primary metric, revenue translation, and sustainability metric analyzed together, not in isolation
 
+## Interactive Dashboard
+
+A Streamlit dashboard (`app/dashboard.py`) presents every result above as interactive charts across 6 tabs (A/B results, CUPED, sequential testing, multi-variant/FDR, causal inference, and the guardrail trade-off).
+
+Run it locally:
+
+```bash
+pip install -r requirements.txt
+streamlit run app/dashboard.py
+```
+
+Or deploy it for free in a few minutes at [share.streamlit.io](https://share.streamlit.io) (Streamlit Community Cloud): sign in with GitHub, point it at this repo, and set the main file path to `app/dashboard.py`. Once deployed, update the dashboard link at the top of this README with your live URL.
+
 ## Data Source
 
 Category-level carbon intensities (kg CO2e per $1 spent) are pulled live from Climatiq's emission factor database — real, sourced, published data, not invented figures. See [`docs/REPORT.md`](docs/REPORT.md#21-real-emission-factors-climatiq-api) for the exact factors used and a documented gap (one category falls back to a placeholder where no match was found).
 
 ## Tech Stack
 
-Python · pandas · NumPy · statsmodels · scikit-learn · SciPy · Climatiq REST API
+Python · pandas · NumPy · statsmodels · scikit-learn · SciPy · Streamlit · Plotly · Climatiq REST API
 
 ## Repo Structure
 
@@ -38,7 +55,10 @@ Python · pandas · NumPy · statsmodels · scikit-learn · SciPy · Climatiq RE
 .
 ├── README.md
 ├── docs/
-│   └── REPORT.md              # full technical write-up
+│   ├── REPORT.md              # full technical write-up
+│   └── images/                # charts referenced in README/REPORT
+├── app/
+│   └── dashboard.py           # interactive Streamlit dashboard
 ├── requirements.txt
 ├── .env.example                # copy to .env and add your Climatiq API key
 └── src/
