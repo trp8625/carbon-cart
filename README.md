@@ -5,7 +5,7 @@
 
 Does showing shoppers a real-time carbon footprint estimate at checkout change their behavior and at what cost? This project runs a full, realistic A/B testing pipeline on a simulated e-commerce checkout flow, using **real carbon emission data from the [Climatiq API](https://www.climatiq.io/)** rather than made-up numbers, and goes well beyond a basic significance test.
 
-**[📊 Live interactive dashboard →](https://YOUR-APP-NAME.streamlit.app)** &nbsp;|&nbsp; **[📄 Full write-up →](docs/REPORT.md)**
+**[Live interactive dashboard →](https://YOUR-APP-NAME.streamlit.app)** &nbsp;|&nbsp; **[Full write-up →](docs/REPORT.md)**
 
 *(Replace the dashboard link above with your actual Streamlit Community Cloud URL once deployed, see "Interactive Dashboard" section below.)*
 
