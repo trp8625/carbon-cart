@@ -21,7 +21,6 @@ import streamlit as st
 
 st.set_page_config(
     page_title="CarbonCart: A/B Test Results",
-    page_icon="🛒",
     layout="wide",
 )
 
@@ -31,24 +30,70 @@ GRAY = "#757575"
 BLUE = "#1565C0"
 
 # ---------------------------------------------------------------------------
+# Visual polish: card-style metrics, spacing, and a light header treatment.
+# The colors/fonts themselves come from .streamlit/config.toml (documented
+# [theme] keys). This CSS block only adds layout/shadow/spacing touches that
+# aren't exposed through config.toml, targeting Streamlit's stable
+# data-testid hooks rather than internal class names where possible.
+# ---------------------------------------------------------------------------
+st.markdown(
+    """
+    <style>
+    div[data-testid="stMetric"] {
+        background-color: #FFFFFF;
+        border: 1px solid #E3E9E4;
+        border-radius: 0.75rem;
+        padding: 1rem 1.1rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+    div[data-testid="stMetricLabel"] {
+        font-weight: 600;
+        color: #4B554C;
+    }
+    div[data-testid="stTabs"] button[role="tab"] {
+        font-weight: 600;
+    }
+    .cc-hero {
+        background: linear-gradient(135deg, #EAF3EA 0%, #F7FAF7 100%);
+        border: 1px solid #E3E9E4;
+        border-radius: 1rem;
+        padding: 1.6rem 1.8rem;
+        margin-bottom: 1.2rem;
+    }
+    .cc-hero h1 {
+        margin-bottom: 0.4rem;
+        font-size: 2rem;
+    }
+    .cc-hero p {
+        margin-bottom: 0.4rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+# ---------------------------------------------------------------------------
 # Header
 # ---------------------------------------------------------------------------
-st.title("🛒 CarbonCart: A Carbon-Nudge A/B Testing Case Study")
 st.markdown(
-    "A simulated e-commerce checkout experiment testing whether a real-time "
-    "carbon footprint estimate changes shopper behavior, built on **real "
-    "emission factor data** from the [Climatiq API](https://www.climatiq.io/) "
-    "and a full randomized experimentation pipeline: power analysis, CUPED, "
-    "sequential testing correction, multi-variant FDR correction, and a "
-    "causal-inference comparison against biased observational data."
+    """
+    <div class="cc-hero">
+        <h1> CarbonCart: A Carbon-Nudge A/B Testing Case Study</h1>
+        <p>A simulated e-commerce checkout experiment testing whether a real-time
+        carbon footprint estimate changes shopper behavior, built on <b>real
+        emission factor data</b> from the <a href="https://www.climatiq.io/" target="_blank">Climatiq API</a>
+        and a full randomized experimentation pipeline: power analysis, CUPED,
+        sequential testing correction, multi-variant FDR correction, and a
+        causal-inference comparison against biased observational data.</p>
+        <p>
+        <a href="https://github.com/trp8625/carbon-cart/blob/main/docs/REPORT.md" target="_blank">Full technical write-up</a>
+        &nbsp;|&nbsp;
+        <a href="https://github.com/trp8625/carbon-cart" target="_blank">Source code</a>
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True,
 )
-st.markdown(
-    "[📄 Full technical write-up](https://github.com/YOUR-USERNAME/YOUR-REPO/blob/main/docs/REPORT.md) &nbsp;|&nbsp; "
-    "[💻 Source code](https://github.com/YOUR-USERNAME/YOUR-REPO)"
-)
-st.caption("Replace YOUR-USERNAME/YOUR-REPO above with your actual GitHub path once the repo is live.")
-
-st.divider()
 
 # ---------------------------------------------------------------------------
 # Headline metrics

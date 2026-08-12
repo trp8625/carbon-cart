@@ -1,0 +1,15 @@
+# Custom theme for the CarbonCart dashboard.
+# Reference: https://docs.streamlit.io/develop/api-reference/configuration/config.toml
+# All keys below were verified against the installed Streamlit version's
+# config option registry (streamlit.config._config_options) before use.
+
+[theme]
+base = "light"
+primaryColor = "#2E7D32"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F1F6F2"
+textColor = "#1A1F1B"
+font = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+headingFont = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+baseRadius = "0.75rem"
+showWidgetBorder = false

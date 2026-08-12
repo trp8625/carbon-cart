@@ -1,9 +1,9 @@
-# Carbon Footprint Nudge: An A/B Testing Case Study
+# Carbon Cart: An A/B Testing Case Study
 
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-Does showing shoppers a real-time carbon footprint estimate at checkout change their behavior — and at what cost? This project runs a full, realistic A/B testing pipeline on a simulated e-commerce checkout flow, using **real carbon emission data from the [Climatiq API](https://www.climatiq.io/)** rather than made-up numbers, and goes well beyond a basic significance test.
+Does showing shoppers a real-time carbon footprint estimate at checkout change their behavior and at what cost? This project runs a full, realistic A/B testing pipeline on a simulated e-commerce checkout flow, using **real carbon emission data from the [Climatiq API](https://www.climatiq.io/)** rather than made-up numbers, and goes well beyond a basic significance test.
 
 **[📊 Live interactive dashboard →](https://YOUR-APP-NAME.streamlit.app)** &nbsp;|&nbsp; **[📄 Full write-up →](docs/REPORT.md)**
 
@@ -19,7 +19,7 @@ Does showing shoppers a real-time carbon footprint estimate at checkout change t
 
 ## Methodology
 
-This isn't a single t-test. The pipeline covers:
+The pipeline covers:
 
 - **Power analysis** to size the experiment before collecting any data (`statsmodels`)
 - **CUPED** variance reduction using a pre-experiment covariate
