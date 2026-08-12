@@ -7,13 +7,11 @@ Does showing shoppers a real-time carbon footprint estimate at checkout change t
 
 **[Live interactive dashboard →](https://carboncart.streamlit.app/)** &nbsp;|&nbsp; **[Full write-up →](docs/REPORT.md)**
 
-*(Replace the dashboard link above with your actual Streamlit Community Cloud URL once deployed, see "Interactive Dashboard" section below.)*
-
 ## Key Findings
 
 - The nudge produced a statistically significant **-2.45pp drop in conversion** (p = 0.0006) and a significant **+8.82pp increase** in shoppers choosing a lower-carbon alternative (p < 0.0001).
 - The **guardrail metric — total footprint per user — did not move significantly** (p = 0.39): the conversion loss and the greener choices roughly offset each other.
-- A parallel causal-inference exercise showed that estimating this same effect from **biased observational data flips the sign of the result entirely** — a concrete demonstration of why randomization matters:
+- A parallel causal-inference exercise showed that estimating this same effect from **biased observational data flips the sign of the result entirely**, a concrete demonstration of why randomization matters:
 
 ![Naive observational analysis flips the sign of the true effect](docs/images/causal_comparison.png)
 
